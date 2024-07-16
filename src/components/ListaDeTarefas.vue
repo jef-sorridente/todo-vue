@@ -1,9 +1,10 @@
 <script setup>
-const props = defineProps(["tarefas", ""])
+const props = defineProps(["tarefas"])
 </script>
 
 <template>
-    <ul class="list-group mt-4">
+    <p class="text-center h3 my-5" v-if="!props.tarefas.length">Não existem tarefas no momento!</p>
+    <ul v-else class="list-group mt-4">
         <li class="list-group-item" v-for="tarefa in props.tarefas">
             <input @change="e => tarefa.finalizada = e.target.checked" :checked="tarefa.finalizada" :id="tarefa.titulo"
                 type="checkbox">
